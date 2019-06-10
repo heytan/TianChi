@@ -50,6 +50,15 @@
 ![pie_3](https://raw.githubusercontent.com/heytan/TianChi/master/newcomer/O2O-Coupon-Usage-Forecast/imgs/pie_3.png)  
 ---
 正负样本比例差距很大，后期建模时需啊哟考虑数据不平衡的问题。
+## 3.数据集划分  
+预测集：dataset3(20160701-20160731)(from off_test)+feature3(20160315-20160630)(from off_train)  
+训练集：dataset2(20160515-206160615)(from off_train)+feature2(20160201-20160514)(from off_train)  
+训练集：dataset1(20160414-20160514)(from off_train)+feature1(20160101-20160413)(from off_train) 
+
+feature区间是用来提取历史特征的，比如用户的一些习惯特征/商户的营业习惯等，这些历史个性特征对于预测优惠券的使用有重要影响。这种数据划分方法叫做时间窗划分法。
+## 4.特征工程  
+
+
 
 
 
