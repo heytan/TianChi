@@ -214,5 +214,5 @@ if __name__ == '__main__':
 	#线上验证
 	big_train = pd.concat([train, validate], axis = 0)
 	result, _ = model_xgb(big_train, test)
-	result.to_csv('myspace/submit2.csv', index=False, header=False)
+	result.to_csv('myspace/submit1.csv', index=False, header=False)
 

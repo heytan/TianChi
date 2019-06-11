@@ -4,7 +4,7 @@
 ## 数据和评价方式  
 本赛题提供用户在2016年1月1日至2016年6月30日之间真实线上线下消费行为，预测用户在2016年7月领取优惠券后15天以内的使用情况。本赛题目标是预测投放的优惠券是否核销。针对此任务及一些相关背景知识，使用优惠券核销预测的平均AUC（ROC曲线下面积）作为评价标准。 即对每个优惠券coupon_id单独计算核销预测的AUC值，再对所有优惠券的AUC值求平均作为最终的评价标准。
 ## 1.数据初探  
-获取对数据的基本了解 data_explore.ipynb  
+获取对数据的基本了解 [data_explore.ipynb](https://github.com/heytan/TianChi/blob/master/newcomer/O2O-Coupon-Usage-Forecast/data_explore.ipynb)  
 * 共有1754884条记录  
 * 共有1053282条优惠券领取记录  
 * 共有9738种不同优惠券  
@@ -13,7 +13,7 @@
 * 优惠券在2016-01-01到2016-06-15之间领取  
 * 消费时间在2016-01-01到2016-06-30之间  
 ## 2.数据分析与可视化
-通过可视化方式深入了解数据各个变量之间的联系 plot.ipynb  
+通过可视化方式深入了解数据各个变量之间的联系 [plot.ipynb](https://github.com/heytan/TianChi/blob/master/newcomer/O2O-Coupon-Usage-Forecast/plot.ipynb)  
 ### (1)每天领券次数  
 ![bar_1](https://raw.githubusercontent.com/heytan/TianChi/master/newcomer/O2O-Coupon-Usage-Forecast/imgs/bar_1.png)  
 --- 
@@ -108,6 +108,9 @@ feature区间是用来提取历史特征的，比如用户的一些习惯特征/
     * user_merchant_coupon_buy_rate：用户对特定商家核销次数占消费次数比例
     * user_merchant_rate：用户对特定商家消费次数占接触次数的比例
     * user_merchant_common_buy_rate：用户对特定商家普通消费次数占总消费次数比例
+[O2O_full_version_1.py](https://github.com/heytan/TianChi/blob/master/newcomer/O2O-Coupon-Usage-Forecast/O2O_full_version_1.py)是第一个代码版本，这个版本只使用了一些非常简单的特征，数据集使用简单留出法划分。 
+[O2O_full_version_2.py](https://github.com/heytan/TianChi/blob/master/newcomer/O2O-Coupon-Usage-Forecast/O2O_full_version_2.py)是第二个代码版本，这个版本系统的使用了特征工程的技术，使用了各种各样的特征，且数据集的划分使用时间窗划分法。
+
 ## 算法选择与训练  
 使用了XGBOOST模型来做训练，但是对XGBOOST算法的原理还不清楚，需要后续的学习。同时对训练过程中如何避免过拟合等其他技巧需要学习。打算学习《统计学习方法》。
 ## 总结：  
