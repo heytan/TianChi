@@ -57,7 +57,61 @@
 
 feature区间是用来提取历史特征的，比如用户的一些习惯特征/商户的营业习惯等，这些历史个性特征对于预测优惠券的使用有重要影响。这种数据划分方法叫做时间窗划分法。
 ## 4.特征工程  
-
+* other feature  
+    * this_month_user_receive_all_coupon_count：用户领取的所有优惠券数目
+    * this_month_user_receive_same_coupon_count：用户领取特定优惠券数目
+    * this_month_user_receive_same_coupon_lastone：用户是否最后一次领取特定优惠券
+    * this_month_user_receive_same_coupon_firstone：用户是否首次领取优惠券
+    * this_day_user_receive_all_coupon_count：用户当天领取的优惠券数目
+    * this_day_user_receive_same_coupon_count：用户当天领取的特定优惠券数目
+    * day_gap_before：用户上一次领取的时间间隔
+    * day_gap_after：用户下一次领取的时间间隔
+    * max_date_received:用户领取特定优惠券的最晚日期
+    * min_date_received:用户领取特定优惠券的最早日期
+* coupon related feature  
+    * discount_rate：折扣率
+    * discount_man：满多少  
+    * discount_jian：减多少  
+    * is_man_jian：是否是满减类型  
+    * day_of_week：周几  
+    * day_of_month：月份  
+    * days_distance:距离6月底还有几天  
+* merchant related feature  
+    * total_sales：商家进行交易的次数
+    * sales_use_coupon：商家用优惠券进行交易的次数
+    * total_coupon：商家共有多少优惠券
+    * coupon_rate = sales_use_coupon/total_sales：用券交易数/总交易数  
+    * merchant_coupon_transfer_rate=sales_use_coupon/total_coupon:用券交易数/总交易数
+    * merchant_median_distance：商家距离的中位数
+    * merchant_mean_distance:商家平均距离
+    * merchant_min_distance：商家最小距离
+    * merchant_max_distance：商家最大距离
+* user related feature    
+    * count_merchant：用户去过的店的数量。
+    * user_avg_distance：用户平均距离
+    * user_min_distance：用户最小距离
+    * user_max_distance：用户最大距离
+    * buy_use_coupon：用户用券消费次数
+    * buy_total：用户总消费次数
+    * coupon_received：用户领券次数
+    * user_date_datereceived_gap：领券到消费的时间间隔
+    * avg_user_date_datereceived_gap:平均领券到消费时间间隔
+    * min_user_date_datereceived_gap:最小领券到消费时间间隔
+    * max_user_date_datereceived_gap:最大领券到消费事假间隔
+* user-merchant feature  
+    * user_merchant_buy_total:用户去特定店消费次数
+    * user_merchant_received:用户领券特定店优惠券数量
+    * user_merchant_buy_use_coupon：用户去特定店用券消费的次数
+    * user_merchant_any：用户接触过特定店次数（包括领券、消费等）
+    * user_merchant_buy_common：用户对特定商家普通消费的次数
+    * user_merchant_coupon_transfer_rate：用户对特定商家核销次数占领券次数比例
+    * user_merchant_coupon_buy_rate：用户对特定商家核销次数占消费次数比例
+    * user_merchant_rate：用户对特定商家消费次数占接触次数的比例
+    * user_merchant_common_buy_rate：用户对特定商家普通消费次数占总消费次数比例
+## 算法选择与训练  
+使用了XGBOOST模型来做训练，但是对XGBOOST算法的原理还不清楚，需要后续的学习。同时对训练过程中如何避免过拟合等其他技巧需要学习。打算学习《统计学习方法》。
+## 总结：  
+经过新人赛O2O项目对整个机器学习，尤其是特征工程，以及pandas的操作加深了理解。
 
 
 
