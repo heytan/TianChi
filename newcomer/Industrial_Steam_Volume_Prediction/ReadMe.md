@@ -4,4 +4,4 @@
 ## 数据和评价方式  
 数据分成训练数据（train.txt）和测试数据（test.txt），其中字段”V0”-“V37”，这38个字段是作为特征变量，”target”作为目标变量。选手利用训练数据训练出模型，预测测试数据的目标变量，排名结果依据预测结果的MSE（mean square error）。提交的测试数据的预测结果（txt格式，只有一列预测结果。）
 ## 流程框图  
-![flow]()
+![flow](https://raw.githubusercontent.com/heytan/TianChi/master/newcomer/Industrial_Steam_Volume_Prediction/imgs/flow.png)
